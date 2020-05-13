@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Kata
 {
@@ -9,26 +10,30 @@ namespace Kata
     {
         public static int DuplicateCount(string str)
         {
-            var numberOfCharactersOccuringMoreThanOnce = 0;
-            var charactersOccurence = new HashSet<char>();
-            var duplicatesCounted = new HashSet<char>();
+            // var numberOfCharactersOccuringMoreThanOnce = 0;
+            // var charactersOccurence = new HashSet<char>();
+            // var duplicatesCounted = new HashSet<char>();
+            //
+            // foreach (var character in str.ToLower())
+            // {
+            //     if (charactersOccurence.Contains(character))
+            //     {
+            //         if (!duplicatesCounted.Contains(character))
+            //         {
+            //             ++numberOfCharactersOccuringMoreThanOnce;
+            //             duplicatesCounted.Add(character);
+            //         }
+            //     }
+            //     else
+            //     {
+            //         charactersOccurence.Add(character);
+            //     }
+            // }
+            // return numberOfCharactersOccuringMoreThanOnce;
             
-            foreach (var character in str.ToLower())
-            {
-                if (charactersOccurence.Contains(character))
-                {
-                    if (!duplicatesCounted.Contains(character))
-                    {
-                        ++numberOfCharactersOccuringMoreThanOnce;
-                        duplicatesCounted.Add(character);
-                    }
-                }
-                else
-                {
-                    charactersOccurence.Add(character);
-                }
-            }
-            return numberOfCharactersOccuringMoreThanOnce;
+            return str.ToLower()
+                .GroupBy(x => x)
+                .Count(g => g.Count() > 1);
         }
     }
 }
