@@ -6,7 +6,7 @@ namespace Kata
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CountingDuplicates.DuplicateCount("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"));
+            Console.WriteLine(Dubstep.SongDecoder("RWUBWUBWUBLWUB"));
         }
     }
 }
